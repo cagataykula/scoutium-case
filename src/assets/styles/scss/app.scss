@@ -1,3 +1,11 @@
 @import './colors';
 @import './fonts';
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1110px,
+  xxl: 1110px
+);
 @import 'node_modules/bootstrap/scss/bootstrap.scss';

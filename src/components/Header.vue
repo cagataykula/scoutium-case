@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="container">
+    <div class="container p-0">
       <div class="logo-wrapper">
         <img class="logo" src="@/assets/images/logo.png" alt="Scoutium">
       </div>
