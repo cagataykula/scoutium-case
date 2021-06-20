@@ -96,12 +96,12 @@ export default {
         $('#myModal').modal('hide');
       } else if (type == 'add') {
         emitter.emit('add.substitution', {inPlayer: state.inPlayer, outPlayer: state.outPlayer, minute: state.minute})
-        state.inPlayer = null
-        state.outPlayer = null
-        state.minute = null
         // eslint-disable-next-line no-undef
         $('#myModal').modal('hide');
       }
+      state.inPlayer = null
+      state.outPlayer = null
+      state.minute = null
     }
 
     const isAddDisabled = computed(() => {

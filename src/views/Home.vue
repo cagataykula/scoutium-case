@@ -40,7 +40,7 @@
         <div class="col-md-4 mt-3">
           <ShadowBox title="Substitutes" :empty="selectedPlayerIds.length < 11" emptyText="Please pick 11 players for lineup before creating any substitutions">
             <Player v-for="substitution in substitutions" substitution="in" :minute="substitution.minute" :key="substitution" :data="getPlayerById(substitution.inPlayer)" />
-            <span class="add-substitution" v-if="selectedPlayerIds.length >= 11 && substitutions.length < 3 && !confirmed" @click="addSubstitution">+ Add Substitution</span>
+            <span class="add-substitution" v-if="selectedPlayerIds.length >= 11 && substitutions.length < 5 && !confirmed" @click="addSubstitution">+ Add Substitution</span>
           </ShadowBox>
           </div>
       </div>
