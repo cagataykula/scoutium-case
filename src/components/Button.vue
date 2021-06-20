@@ -1,16 +1,26 @@
 <template>
-  <button :disabled="disabled" class="button" :style="`background-color: ${color}`"><slot /></button>
+  <button :disabled="disabled" class="button" :style="`background-color: ${backgroundColor}; color: ${color};  width: ${big ? '225px;' : 'unset'}`"><slot /></button>
 </template>
 
 <script>
 export default {
   props: {
-    color: {
+    backgroundColor: {
       required: false,
       type: String,
       default: ''
     },
+    color: {
+      required: false,
+      type: String,
+      default: '#fff'
+    },
     disabled: {
+      required: false,
+      default: false,
+      type: Boolean
+    },
+    big: {
       required: false,
       default: false,
       type: Boolean
@@ -23,7 +33,7 @@ export default {
 .button {
   background-color: $light-royal-blue;
   color: $white;
-  min-width: 225px;
+  min-width: 100px;
   height: 36px;
   padding: 10px;
   border-radius: 8px;

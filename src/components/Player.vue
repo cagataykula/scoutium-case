@@ -14,6 +14,11 @@
         <span v-if="!picked" class="pick" @click="$emit('pick', data.id)">PICK</span>
         <span v-else class="pick red" @click="$emit('unpick', data.id)">UNPICK</span>
       </template>
+      <template v-if="substitution">
+        <span v-if="substitution == 'in'" class="substitution in"></span>
+        <span v-if="substitution == 'out'" class="substitution out"></span>
+        <span class="substitution time">{{minute}}’</span>
+      </template>
     </div>
   </div>
 </template>
@@ -34,6 +39,16 @@ export default {
       required: false,
       type: Boolean,
       default: false
+    },
+    substitution: {
+      required: false,
+      type: String,
+      default: '',
+    },
+    minute: {
+      required: false,
+      type: String,
+      default: ''
     }
   },
 }
@@ -101,6 +116,57 @@ export default {
       }
       .red {
         color: $faded-red;
+      }
+
+      .substitution {
+        &.time {
+          margin-left: 7px;
+          font-family: SofiaPro;
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          text-align: left;
+          color: $night-blue;
+
+        }
+        &.in {
+          bottom: 0;
+          width: 0;
+          height: 12px;
+          border: solid 2px $aqua-green;
+          &::after {
+            position: absolute;
+            content: ' ';
+            width: 0; 
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid $aqua-green;
+            margin-left: -7px;
+            margin-top: -1px;
+          }
+        }
+        &.out {
+          bottom: 0px;
+          width: 0px;
+          height: 13px;
+          border: solid 2px $faded-red;
+
+          &::after {
+            position: absolute;
+            content: ' ';
+            width: 0; 
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid $faded-red;
+            margin-left: -7px;
+            margin-top: 18px;
+          }
+        }
       }
     }
   }
